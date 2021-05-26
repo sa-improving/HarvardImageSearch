@@ -1,0 +1,11 @@
+#imageGrid{
+    display: inline-block;
+}
+
+.imageContainer{
+    max-width: 40px;
+}
+
+img{
+    max-width: 40px;
+}
