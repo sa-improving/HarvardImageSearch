@@ -1,13 +1,35 @@
+body{
+    background-color: bisque;
+    box-sizing: border-box;
+}
 #imageGrid{
     display: inline-block;
 }
 
 .imageContainer{
     display: inline-block;
-    height: 40px;
+    width: 20em;
+    margin: 3em 1em;
+    padding: 2em;
+    border: 1em solid black;
+    vertical-align: top;
+    border-radius: .4em;
+    background-color: coral;
+    
 }
 
 .art{
-    display: inline-block;
-    height: 40px;
+    max-width: 100%;
+    border: .2em solid black;
+    margin-bottom: 1em;
+}
+
+.description{
+    background-color: cornsilk;
+    border: .1em solid black;
+    padding: .2em;
+}
+
+.art, .description {
+    box-shadow: .3em .3em rgb(133, 75, 5);
 }
