@@ -3,9 +3,11 @@
 }
 
 .imageContainer{
-    max-width: 40px;
+    display: inline-block;
+    height: 40px;
 }
 
-img{
-    max-width: 40px;
+.art{
+    display: inline-block;
+    height: 40px;
 }

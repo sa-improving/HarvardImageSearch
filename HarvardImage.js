@@ -13,8 +13,11 @@ function imageFetch(inputQuery){
         data.records.forEach(element => {
             const imageDiv = document.createElement("div");
             imageDiv.classList.add("imageContainer")
+
             const image = document.createElement("img");
+            image.classList.add("art");
             image.src = element.baseimageurl;
+            
             imageDiv.appendChild(image);
             imageContainer.appendChild(imageDiv);
         });
