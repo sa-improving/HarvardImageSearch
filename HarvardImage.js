@@ -37,7 +37,7 @@ function imageFetch(inputQuery){
     .then((data) => {
         console.log(data);
         produceImages(data);
-        if(data.info.next !== null){
+        if(data.info.next !== undefined){
             urlNext = data.info.next;
         } else {
             urlNext = apiEndpointBaseUrl;
@@ -53,25 +53,28 @@ function paging(url, direction){
     })
     .then((data) => {
         console.log(data);
-        let next = data.info.next;
-        let previous = data.info.prev;
+        let fetchNext = data.info.next;
+        let fetchPrevious = data.info.prev;
         if(direction === "next"){
-            if(next !== undefined){
+            if(fetchNext !== undefined){
                 imageContainer.textContent = ""
                 produceImages(data);
-                urlNext = next;
+                urlNext = fetchNext;
             }
-            if(previous !== undefined){
-                urlPrevious = previous; 
+            if(fetchPrevious !== undefined){
+                urlPrevious = fetchPrevious; 
             }
-        }else{
-            if(previous !== undefined){
+        }else if(direction === "previous"){
+            if(fetchPrevious !== undefined){
                 imageContainer.textContent = ""
                 produceImages(data);
-                urlPrevious = previous;
+                urlPrevious = fetchPrevious;
+            } else {
+                imageContainer.textContent = ""
+                produceImages(data);
             }
-            if(previous !== undefined){
-                urlNext = next; 
+            if(fetchNext !== undefined){
+                urlNext = fetchNext; 
             }
         }
     })
@@ -86,10 +89,10 @@ input.addEventListener('keyup', (e) => {
     }
 })
 
-next.addEventListener('click', (currentPage) =>{
+next.addEventListener('click', () =>{
     paging(urlNext, "next")
 })
 
-previous.addEventListener('click', (currentPage) =>{
+previous.addEventListener('click', () =>{
     paging(urlPrevious, "previous");
 })
