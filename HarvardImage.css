@@ -33,7 +33,3 @@ body{
 .art, .description {
     box-shadow: .3em .3em rgb(133, 75, 5);
 }
-
-.hidden{
-    display: none;
-}
